@@ -1,0 +1,1391 @@
+﻿{
+    "bpm":  150,
+    "duration":  107.5,
+    "notes":  [
+                  {
+                      "time":  903,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  1666,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  1844,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  2053,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  2440,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  2827,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  3575,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  4378,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  4785,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  5165,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  5583,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  6004,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  6760,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  7614,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  8029,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  8221,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  8417,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  8821,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  9224,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  10008,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  10799,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  11213,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  11608,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  11968,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  12383,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  13718,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  14425,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  15234,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  15409,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  15605,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  16000,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  16389,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  16809,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  17556,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  18397,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  18771,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  19166,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  19592,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  20015,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  20816,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  21644,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  21840,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  22022,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  22418,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  22803,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  23198,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  23612,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  23989,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  24387,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  24774,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  25188,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  25595,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  25990,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  26431,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  27375,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  28095,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  28489,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  28895,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  29078,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  29271,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  29670,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  30076,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  30486,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  30877,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  31263,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  31674,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  32090,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  32279,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  32495,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  32686,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  32881,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  33081,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  33287,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  33467,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  33663,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  33873,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  34078,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  34275,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  34476,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  34683,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  34879,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  35095,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  35292,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  35511,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  35707,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  35902,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  36096,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  36291,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  36481,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  36678,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  36876,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  36996,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  37104,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  37208,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  37344,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  37463,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  37587,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  37722,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  37838,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  37974,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  38111,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  38238,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  38362,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  38496,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  39678,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  40026,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  40441,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  40602,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  40792,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  41213,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  41594,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  41979,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  42375,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  42763,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  43191,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  43590,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  44012,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  44407,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  44785,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  45188,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  45397,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  45567,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  45989,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  46400,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  46774,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  47196,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  47564,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  47997,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  48392,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  48574,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  48791,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  49193,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  49580,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  49967,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  50382,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  50800,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  51190,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  51581,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  51780,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  51991,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  52382,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  52765,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  53191,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  53566,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  53965,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  54388,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  54801,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  54999,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  55207,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  55393,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  55602,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  55826,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  56044,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  56240,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  56473,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  56871,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  57061,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  57239,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  57618,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  58013,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  58439,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  58624,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  58815,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  59209,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  59607,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  60010,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  60188,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  60390,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  60812,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  61198,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  61613,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  61803,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  61999,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  62387,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  62789,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  63207,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  63387,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  63582,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  64008,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  64391,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  64798,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  64978,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  65176,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  65607,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  66012,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  66401,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  66589,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  66778,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  67181,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  67596,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  68021,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  68207,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  68397,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  68822,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  69010,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  69216,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  69414,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  69623,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  69983,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  70827,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  71619,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  71807,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  72024,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  72411,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  73222,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  74039,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  74236,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  74438,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  74820,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  75613,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  76416,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  77196,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  77997,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  78195,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  78405,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  78798,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  79627,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  80436,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  81229,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  81420,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  81604,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  82032,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  82804,
+                      "element":  "wind",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  83622,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  84008,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  84417,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  84811,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  85000,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  85215,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  85611,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  86411,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  86806,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  87212,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  87609,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  88005,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  88411,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  88814,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  89209,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  89616,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  90002,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  90416,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  90778,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  91173,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  91566,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  92018,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  92407,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  92809,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  93215,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  93621,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  93996,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  94435,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  94816,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  95231,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  95617,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  95977,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  96110,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  96245,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  96381,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  96527,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  96663,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  96805,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  96957,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  97094,
+                      "element":  "earth",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  97392,
+                      "element":  "thunder",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  97751,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  98075,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  98436,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  98831,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  99198,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  99603,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  99952,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  100386,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  100773,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  101178,
+                      "element":  "fire",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  101566,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  101960,
+                      "element":  "water",
+                      "type":  "normal"
+                  },
+                  {
+                      "time":  102390,
+                      "element":  "fire",
+                      "type":  "normal"
+                  }
+              ]
+}

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>元素节奏 - 关卡编辑器</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1a2e;color:#fff;font-family:'Microsoft YaHei',sans-serif;display:flex;flex-direction:column;height:100vh;overflow:hidden}
+.top-bar{background:#252540;padding:10px 15px;border-bottom:2px solid #444;display:flex;align-items:center;gap:12px;flex-shrink:0;flex-wrap:wrap}
+.top-bar h1{font-size:1.2rem;margin-right:auto}
+.main-area{display:flex;flex:1;min-height:0}
+.preview-area{width:55%;padding:15px;border-right:2px solid #333;display:flex;flex-direction:column;align-items:center;overflow:hidden}
+.console-area{width:45%;padding:15px;display:flex;flex-direction:column;overflow:hidden}
+h2{font-size:1rem;color:#aaa;margin-bottom:8px}
+
+/* ===== 游戏区域：完全照搬 rhythm_game.html 的结构 ===== */
+#gameArea{position:relative;width:500px;height:500px;flex-shrink:0;cursor:crosshair}
+.magic-circle{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.track-circle{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,0.1)}
+.outer-circle{width:420px;height:420px;border-color:rgba(255,68,68,0.3)}
+.middle-circle{width:300px;height:300px;border-color:rgba(68,136,255,0.2)}
+.inner-circle{width:180px;height:180px;border-color:rgba(170,136,68,0.2)}
+.track-line{position:absolute;bottom:50%;left:50%;width:2px;height:210px;transform-origin:bottom center;margin-left:-1px}
+.center-point{position:absolute;width:20px;height:20px;background:#fff;border-radius:50%;z-index:4;box-shadow:0 0 20px #fff}
+.hit-zone{position:absolute;width:60px;height:60px;border:3px solid #ff3366;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.4;z-index:2}
+/* 音符：完全照搬游戏 */
+.note{position:absolute;width:32px;height:32px;border-radius:50%;top:50%;left:50%;margin-left:-16px;margin-top:-16px;z-index:3;box-shadow:0 0 15px currentColor}
+.note.editor-static{cursor:pointer;opacity:0.7;border:2px dashed rgba(255,255,255,0.5)}
+.note.editor-static:hover{opacity:1;border-color:#fff}
+.note.editor-static.sel{opacity:1;border:2px solid #fff;box-shadow:0 0 15px #fff,0 0 30px #fff}
+
+/* ===== 控件 ===== */
+.ctrl{background:#2d2d44;border-radius:8px;padding:10px;margin-bottom:8px}
+.es{display:flex;gap:6px;margin-bottom:8px;justify-content:center}
+.eb{width:44px;height:44px;border-radius:22px;border:3px solid transparent;cursor:pointer;font-size:.7rem;font-weight:bold;transition:all .2s}
+.eb.sel{border-color:#fff;box-shadow:0 0 10px #fff;transform:scale(1.1)}
+.fire-b{background:#ff3333;color:#fff}.water-b{background:#33ccff;color:#fff}.wind-b{background:#33ff33;color:#fff}.earth-b{background:#ffaa33;color:#fff}.thunder-b{background:#ff33ff;color:#fff}
+.br{display:flex;gap:5px;margin-bottom:6px;flex-wrap:wrap}
+.ab{padding:6px 10px;background:#444;border:none;border-radius:5px;color:#fff;cursor:pointer;font-size:.8rem;transition:background .15s}
+.ab:hover{background:#555}.ab.pri{background:#e91e63}.ab.pri:hover{background:#ff4081}.ab.grn{background:#4caf50}.ab.grn:hover{background:#66bb6a}.ab.yel{background:#ffc107;color:#000}.ab.yel:hover{background:#ffca28}.ab.dng{background:#c62828}.ab.dng:hover{background:#e53935}
+.ir{display:flex;gap:6px;margin-bottom:6px}
+.if{flex:1;padding:6px;background:#444;border:1px solid #555;border-radius:5px;color:#fff;font-size:.85rem}
+.sc{display:flex;align-items:center;gap:8px;padding:6px;background:#333;border-radius:5px;margin-bottom:6px}
+.sc label{color:#aaa;font-size:.8rem}.sc select{padding:5px 8px;background:#555;border:1px solid #666;border-radius:5px;color:#fff;font-size:.85rem}
+.td{text-align:center;padding:6px;background:#444;border-radius:5px;margin-bottom:6px;font-size:.85rem}
+.td span{color:#ffcc00;font-weight:bold}
+.nl{flex:1;background:#2d2d44;border-radius:8px;padding:8px;overflow-y:auto;min-height:0}
+.ni{background:#3a3a5a;padding:6px 8px;border-radius:5px;margin-bottom:4px;display:flex;align-items:center;gap:8px;cursor:pointer;transition:background .15s}
+.ni:hover{background:#4a4a6a}.ni.sel{background:#5a5a7a;border:1px solid #e91e63}
+.nd{width:12px;height:12px;border-radius:50%;flex-shrink:0}.ni-f{flex:1}.nt{color:#ffcc00;font-size:.8rem;font-weight:bold}.ne{color:#999;font-size:.7rem}
+.ndel{background:#f44336;border:none;color:#fff;padding:2px 7px;border-radius:3px;cursor:pointer;font-size:.7rem}
+.jb{margin-top:8px;background:#2d2d44;border-radius:8px;padding:8px;max-height:80px;overflow-y:auto}.jb pre{margin:0;color:#a5d6a7;font-size:.68rem;font-family:monospace}
+.ems{text-align:center;color:#666;padding:15px;font-size:.85rem}
+.ts{background:#252540;border-top:2px solid #444;padding:8px 15px;flex-shrink:0}
+.th{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;flex-wrap:wrap;gap:6px}
+.th h3{margin:0;font-size:.8rem;color:#aaa}
+.tc2{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.ab2{padding:4px 9px;background:#444;border:none;border-radius:4px;color:#fff;cursor:pointer;font-size:.75rem}
+.ab2:hover{background:#555}.ab2.yel{background:#ffc107;color:#000}
+.zc{display:flex;align-items:center;gap:5px;background:#333;padding:4px 8px;border-radius:5px}
+.zc label{color:#aaa;font-size:.75rem}
+.zs{width:80px;height:4px;-webkit-appearance:none;background:#555;border-radius:3px;cursor:pointer}
+.zs::-webkit-slider-thumb{-webkit-appearance:none;width:11px;height:11px;background:#2196f3;border-radius:50%;cursor:pointer}
+.zv{color:#ffcc00;font-size:.75rem;min-width:40px;text-align:center}
+.tl{position:relative;height:60px;background:#1a1a30;border-radius:5px;overflow:hidden;cursor:pointer;user-select:none}
+.tr{position:absolute;top:0;left:0;right:0;height:16px;background:#2a2a45;border-bottom:1px solid #444}
+.tm{position:absolute;top:0;width:1px;height:100%;background:#444}
+.tt{position:absolute;top:1px;font-size:.58rem;color:#888;transform:translateX(-50%)}
+.ttkv{position:absolute;top:1px;font-size:.58rem;color:#aaa;font-weight:bold;transform:translateX(-50%)}
+.tk{position:absolute;top:20px;left:0;right:0;bottom:0}
+.tn{position:absolute;width:9px;height:9px;border-radius:50%;top:50%;transform:translateY(-50%);cursor:pointer;border:2px solid rgba(255,255,255,.2)}
+.tn:hover{transform:translateY(-50%) scale(1.4)}.tn.sel{border-color:#fff;box-shadow:0 0 5px #fff}
+.cp2{position:absolute;top:0;bottom:0;width:6px;background:#ffc107;border-radius:3px;cursor:pointer;z-index:5;transform:translateX(-50%)}
+.cp2:hover{background:#ffca28}.cp2.used{opacity:.2;background:#888;cursor:default}
+.ph{position:absolute;top:0;bottom:0;width:2px;background:#ff3366;z-index:10;pointer-events:none;box-shadow:0 0 8px #ff3366}
+.ph::before{content:'';position:absolute;top:-1px;left:-4px;border:4px solid transparent;border-top-color:#ff3366}
+</style>
+</head>
+<body>
+<div class="top-bar">
+<h1>元素节奏 - 关卡编辑器</h1>
+<div class="sc"><label>倍速:</label>
+<select id="speedSel">
+<option value="0.0625">1/16x</option><option value="0.125">1/8x</option><option value="0.25">1/4x</option><option value="0.5">1/2x</option><option value="1" selected>1x</option>
+</select></div>
+<div class="td">当前: <span id="curTime">0</span> ms</div>
+<div class="br">
+<button class="ab grn" id="playBtn">播放</button>
+<button class="ab" id="pauseBtn">暂停</button>
+<button class="ab" id="stopBtn">停止</button>
+<button class="ab" id="syncBtn">同步</button>
+<button class="ab yel" id="clickBtn">卡点 C</button>
+<button class="ab pri" id="previewBtn">预览下落</button>
+</div>
+</div>
+<div class="main-area">
+<div class="preview-area">
+<h2>关卡预览</h2>
+<div id="gameArea">
+<div class="magic-circle" id="magicCircle">
+<div class="track-circle outer-circle"></div>
+<div class="track-circle middle-circle"></div>
+<div class="track-circle inner-circle"></div>
+<div class="track-line" id="tl0"></div>
+<div class="track-line" id="tl1"></div>
+<div class="track-line" id="tl2"></div>
+<div class="track-line" id="tl3"></div>
+<div class="track-line" id="tl4"></div>
+<div class="hit-zone"></div>
+<div class="center-point"></div>
+</div>
+</div>
+</div>
+<div class="console-area">
+<div class="ctrl">
+<h2>选择元素</h2>
+<div class="es">
+<button class="eb fire-b" data-el="fire">火</button>
+<button class="eb water-b" data-el="water">水</button>
+<button class="eb wind-b" data-el="wind">风</button>
+<button class="eb earth-b" data-el="earth">土</button>
+<button class="eb thunder-b" data-el="thunder">雷</button>
+</div>
+<div class="ir">
+<input type="number" class="if" id="idxIn" placeholder="卡点序号" value="1">
+<button class="ab pri" id="addBtn">添加</button>
+</div>
+<div class="br">
+<button class="ab" id="copyBtn">复制</button>
+<button class="ab" id="delBtn">删除</button>
+<button class="ab dng" id="clearBtn">清空</button>
+</div>
+<div class="br">
+<button class="ab grn" id="loadBtn">加载</button>
+<button class="ab grn" id="saveBtn">保存</button>
+<button class="ab" id="previewGBtn">预览游戏</button>
+</div>
+</div>
+<h2>音符 (<span id="noteCnt">0</span>)</h2>
+<div class="nl" id="noteList"><div class="ems">暂无音符</div></div>
+<div class="jb"><pre id="jsonP">{"bpm":150,"duration":177,"notes":[]}</pre></div>
+</div>
+</div>
+<div class="ts">
+<div class="th">
+<h3>卡点: <span id="usedC">0</span>/<span id="totC">0</span></h3>
+<div class="tc2">
+<button class="ab2" id="prevBtn">-50ms</button>
+<button class="ab2" id="nextBtn">+50ms</button>
+<div class="zc"><label>范围:</label><input type="range" class="zs" id="zoomS" min="500" max="5000" value="500"><span class="zv" id="zoomV">500ms</span></div>
+<button class="ab2 yel" id="addCpBtn">+ 卡点</button>
+<button class="ab2" id="clrCpBtn">清空</button>
+<button class="ab2" id="svCpBtn">保存</button>
+<button class="ab2" id="ldCpBtn">加载</button>
+</div>
+</div>
+<div class="tl" id="tlCon">
+<div class="tr" id="tlRuler"></div>
+<div class="tk" id="tlTrack"></div>
+<div class="ph" id="playhead" style="left:0"></div>
+</div>
+</div>
+<script>
+// ===== 完全照搬游戏的 ELEMENTS 定义 =====
+var ELEMENTS = [
+  { key: 'fire',    angle: 0,   color: '#ff3333' },
+  { key: 'water',   angle: 72,  color: '#33ccff' },
+  { key: 'wind',    angle: 144, color: '#33ff33' },
+  { key: 'earth',   angle: 216, color: '#ffaa33' },
+  { key: 'thunder', angle: 288, color: '#ff33ff' }
+];
+
+var chart = { bpm: 150, duration: 177, notes: [] };
+var clicks = [];
+var usedS = new Set();
+var selEl = 'fire';
+var selId = null;
+var audio = null;
+var pSpeed = 1;
+var zoom = 500;
+
+// 预览状态
+var isPrev = false;
+var rafId = null;
+
+function init() {
+  // 设置轨道线颜色（照搬游戏）
+  ELEMENTS.forEach(function(el, i) {
+    var t = document.getElementById('tl' + i);
+    t.style.transform = 'rotate(' + el.angle + 'deg)';
+    t.style.background = 'repeating-linear-gradient(to top, ' + el.color + ' 0px, ' + el.color + ' 6px, transparent 6px, transparent 12px)';
+  });
+
+  // 元素按钮
+  var ebBtns = document.querySelectorAll('.eb');
+  ebBtns.forEach(function(b) {
+    b.onclick = function() {
+      ebBtns.forEach(function(x) { x.classList.remove('sel'); });
+      b.classList.add('sel');
+      selEl = b.dataset.el;
+    };
+  });
+  ebBtns[0].classList.add('sel');
+
+  // 音频
+  audio = new Audio('hard-techno.mp3');
+  audio.ontimeupdate = function() {
+    var ms = Math.floor(audio.currentTime * 1000);
+    document.getElementById('curTime').textContent = ms;
+    document.getElementById('playhead').style.left = (audio.currentTime / chart.duration * 100) + '%';
+  };
+  audio.onended = function() { stopPrev(); };
+
+  // 播放控制
+  document.getElementById('playBtn').onclick = function() { audio.playbackRate = pSpeed; audio.play(); };
+  document.getElementById('pauseBtn').onclick = function() { audio.pause(); };
+  document.getElementById('stopBtn').onclick = function() { audio.pause(); audio.currentTime = 0; };
+  document.getElementById('syncBtn').onclick = function() {
+    var ms = audio.currentTime * 1000, best = 0, dist = Infinity;
+    clicks.forEach(function(t, i) { var d = Math.abs(t - ms); if (d < dist) { dist = d; best = i; } });
+    document.getElementById('idxIn').value = best + 1;
+  };
+  document.getElementById('speedSel').onchange = function(e) { pSpeed = parseFloat(e.target.value); audio.playbackRate = pSpeed; };
+
+  // 卡点
+  document.getElementById('clickBtn').onclick = addCp;
+  document.getElementById('addCpBtn').onclick = addCp;
+  document.getElementById('clrCpBtn').onclick = function() {
+    if (confirm('清空卡点?')) { clicks = []; usedS.clear(); render(); }
+  };
+  document.getElementById('svCpBtn').onclick = function() {
+    if (clicks.length === 0) { alert('无卡点'); return; }
+    dlBlob(JSON.stringify({ clicks: clicks.map(function(t, i) { return { time: t, index: i + 1 }; }) }, null, 2), 'clicks.json');
+  };
+  document.getElementById('ldCpBtn').onclick = function() {
+    flUpload(function(e) {
+      var d = JSON.parse(e.target.result);
+      clicks = d.clicks.map(function(c) { return c.time; }).sort(function(a, b) { return a - b; });
+      usedS.clear(); autoFill(); render();
+      alert('已加载 ' + clicks.length + ' 个卡点');
+    });
+  };
+
+  // 时间轴
+  document.getElementById('prevBtn').onclick = function() { audio.currentTime = Math.max(0, audio.currentTime - 0.05); };
+  document.getElementById('nextBtn').onclick = function() { audio.currentTime = Math.min(chart.duration, audio.currentTime + 0.05); };
+  document.getElementById('zoomS').oninput = function(e) { zoom = +e.target.value; document.getElementById('zoomV').textContent = zoom + 'ms'; buildRuler(); };
+  document.getElementById('tlCon').onclick = function(e) {
+    if (e.target.classList.contains('tn') || e.target.classList.contains('cp2')) return;
+    var rect = e.currentTarget.getBoundingClientRect();
+    var ms = (e.clientX - rect.left) / rect.width * chart.duration * 1000;
+    audio.currentTime = Math.max(0, Math.min(ms / 1000, chart.duration));
+  };
+
+  // 音符操作
+  document.getElementById('addBtn').onclick = addN;
+  document.getElementById('copyBtn').onclick = function() {
+    if (!selId) return;
+    var n = chart.notes.find(function(x) { return x.id === selId; });
+    if (n) { chart.notes.push({ id: Date.now(), time: n.time + 100, element: n.element, type: 'normal' }); chart.notes.sort(function(a, b) { return a.time - b.time; }); render(); }
+  };
+  document.getElementById('delBtn').onclick = function() {
+    if (selId) { chart.notes = chart.notes.filter(function(x) { return x.id !== selId; }); selId = null; render(); }
+  };
+  document.getElementById('clearBtn').onclick = function() {
+    if (confirm('清空所有音符?')) { chart.notes = []; usedS.clear(); selId = null; render(); }
+  };
+  document.getElementById('loadBtn').onclick = function() {
+    flUpload(function(e) {
+      var d = JSON.parse(e.target.result);
+      chart.bpm = d.bpm || 150; chart.duration = d.duration || 177;
+      chart.notes = d.notes.map(function(n, i) { return { id: Date.now() + i, time: n.time, element: n.element, type: n.type || 'normal' }; });
+      usedS.clear(); buildRuler(); autoFill(); render();
+      alert('已加载 ' + chart.notes.length + ' 个音符');
+    });
+  };
+  document.getElementById('saveBtn').onclick = function() {
+    dlBlob(JSON.stringify({ bpm: chart.bpm, duration: chart.duration, notes: chart.notes.map(function(n) { return { time: n.time, element: n.element, type: n.type }; }) }, null, 2), 'chart.json');
+  };
+  document.getElementById('previewGBtn').onclick = function() {
+    localStorage.setItem('editorChart', JSON.stringify({ bpm: chart.bpm, duration: chart.duration, notes: chart.notes.map(function(n) { return { time: n.time, element: n.element, type: n.type }; }) }));
+    window.open('rhythm_game.html?mode=editor', '_blank');
+  };
+  document.getElementById('previewBtn').onclick = togglePrev;
+
+  // 键盘
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT') return;
+    if (e.key === 'ArrowLeft') { audio.currentTime = Math.max(0, audio.currentTime - 0.05); }
+    if (e.key === 'ArrowRight') { audio.currentTime = Math.min(chart.duration, audio.currentTime + 0.05); }
+    if (e.key === ' ') { e.preventDefault(); addN(); }
+    if (e.key === 'c' || e.key === 'C') { e.preventDefault(); addCp(); }
+  });
+
+  buildRuler(); autoFill(); render();
+}
+
+function addCp() {
+  var t = Math.floor(audio.currentTime * 1000);
+  if (!clicks.includes(t)) { clicks.push(t); clicks.sort(function(a, b) { return a - b; }); autoFill(); render(); }
+}
+
+function autoFill() {
+  for (var i = 0; i < clicks.length; i++) {
+    if (!usedS.has(i)) { document.getElementById('idxIn').value = i + 1; return; }
+  }
+  document.getElementById('idxIn').value = clicks.length + 1;
+}
+
+function addN() {
+  var idx = +document.getElementById('idxIn').value - 1;
+  if (idx < 0 || idx >= clicks.length) { alert('卡点序号无效'); return; }
+  var t = clicks[idx];
+  if (chart.notes.some(function(n) { return n.time === t && n.element === selEl; })) { alert('重复音符'); return; }
+  chart.notes.push({ id: Date.now(), time: t, element: selEl, type: 'normal' });
+  chart.notes.sort(function(a, b) { return a.time - b.time; });
+  usedS.add(idx);
+  autoFill(); render();
+}
+
+function selN(id) { selId = selId === id ? null : id; render(); }
+function rmN(id, evt) { evt.stopPropagation(); chart.notes = chart.notes.filter(function(n) { return n.id !== id; }); if (selId === id) selId = null; render(); }
+
+function buildRuler() {
+  var r = document.getElementById('tlRuler');
+  r.innerHTML = '';
+  var total = chart.duration * 1000;
+  var step = zoom > 3000 ? 1000 : zoom > 1000 ? 500 : 100;
+  for (var ms = 0; ms <= total; ms += step) {
+    var p = (ms / total) * 100;
+    var m = document.createElement('div'); m.className = 'tm'; m.style.left = p + '%'; r.appendChild(m);
+    var v = document.createElement('div'); v.className = (ms % 1000 === 0) ? 'ttkv' : 'tt'; v.style.left = p + '%'; v.textContent = ms + 'ms'; r.appendChild(v);
+  }
+}
+
+// ===== 静态编辑视图：音符固定在轨道末端 =====
+function render() {
+  if (isPrev) return; // 预览模式下不更新静态视图
+
+  var mc = document.getElementById('magicCircle');
+  mc.querySelectorAll('.note').forEach(function(e) { e.remove(); });
+
+  // 照搬游戏的音符定位：top:50%;left:50%;margin:-16px;transform:rotate(angle)translateY(-distance)
+  chart.notes.forEach(function(note) {
+    var el = ELEMENTS.find(function(x) { return x.key === note.element; });
+    var n = document.createElement('div');
+    n.className = 'note editor-static' + (note.id === selId ? ' sel' : '');
+    n.style.backgroundColor = el.color;
+    n.style.transform = 'rotate(' + el.angle + 'deg) translateY(-190px)';
+    n.setAttribute('data-id', note.id);
+    n.onclick = function() { selN(note.id); };
+    mc.appendChild(n);
+  });
+
+  // 音符列表
+  document.getElementById('noteCnt').textContent = chart.notes.length;
+  var lst = document.getElementById('noteList');
+  if (chart.notes.length === 0) {
+    lst.innerHTML = '<div class="ems">暂无音符</div>';
+  } else {
+    lst.innerHTML = chart.notes.map(function(note) {
+      var el = ELEMENTS.find(function(x) { return x.key === note.element; });
+      return '<div class="ni' + (note.id === selId ? ' sel' : '') + '" onclick="selN(' + note.id + ')">' +
+        '<div class="nd" style="background:' + el.color + '"></div>' +
+        '<div class="ni-f"><div class="nt">' + note.time + 'ms</div><div class="ne">' + note.element + '</div></div>' +
+        '<button class="ndel" onclick="rmN(' + note.id + ',event)">删除</button></div>';
+    }).join('');
+  }
+
+  // JSON
+  document.getElementById('jsonP').textContent = JSON.stringify({
+    bpm: chart.bpm, duration: chart.duration,
+    notes: chart.notes.map(function(n) { return { time: n.time, element: n.element, type: n.type }; })
+  }, null, 2);
+
+  // 时间轴
+  var tk = document.getElementById('tlTrack');
+  tk.querySelectorAll('.tn,.cp2').forEach(function(e) { e.remove(); });
+  var total = chart.duration * 1000;
+  chart.notes.forEach(function(note) {
+    var p = (note.time / total) * 100;
+    if (p < 0 || p > 100) return;
+    var el = ELEMENTS.find(function(x) { return x.key === note.element; });
+    var n = document.createElement('div');
+    n.className = 'tn' + (note.id === selId ? ' sel' : '');
+    n.style.background = el.color; n.style.left = p + '%';
+    n.onclick = function() { selN(note.id); };
+    tk.appendChild(n);
+  });
+  clicks.forEach(function(t, idx) {
+    var p = (t / total) * 100;
+    var c = document.createElement('div');
+    c.className = 'cp2' + (usedS.has(idx) ? ' used' : '');
+    c.style.left = p + '%';
+    if (!usedS.has(idx)) {
+      c.onclick = function() { document.getElementById('idxIn').value = idx + 1; addN(); };
+    }
+    tk.appendChild(c);
+  });
+  document.getElementById('usedC').textContent = usedS.size;
+  document.getElementById('totC').textContent = clicks.length;
+}
+
+// ===== 预览下落：完全照搬游戏的 getActiveNotes + renderNotes 逻辑 =====
+function togglePrev() {
+  if (isPrev) { stopPrev(); return; }
+  isPrev = true;
+  var b = document.getElementById('previewBtn');
+  b.textContent = '停止预览'; b.style.background = '#f44336';
+  audio.currentTime = 0;
+  audio.playbackRate = pSpeed;
+  audio.play();
+  rafLoop();
+}
+
+function stopPrev() {
+  isPrev = false;
+  if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  audio.pause();
+  var b = document.getElementById('previewBtn');
+  b.textContent = '预览下落'; b.style.background = '';
+  // 恢复静态视图
+  render();
+}
+
+function rafLoop() {
+  if (!isPrev) return;
+  var currentTime = audio.currentTime * 1000;
+  renderPreviewNotes(currentTime);
+  rafId = requestAnimationFrame(rafLoop);
+  if (audio.ended || currentTime > chart.duration * 1000 + 500) { stopPrev(); }
+}
+
+// 照搬游戏的 getActiveNotes 逻辑
+function getActiveNotes(currentTime) {
+  var travelTime = 3000;
+  var startDistance = 210;
+  var endDistance = 0;
+
+  // 已分配音符的卡点时间集合
+  var assignedTimes = new Set(chart.notes.map(function(n) { return n.time; }));
+
+  // 真实音符
+  var realNotes = chart.notes
+    .filter(function(note) {
+      var timeDiff = note.time - currentTime;
+      return timeDiff > -500 && timeDiff <= travelTime;
+    })
+    .map(function(note) {
+      var elementIdx = ELEMENTS.findIndex(function(e) { return e.key === note.element; });
+      if (elementIdx < 0) elementIdx = 0;
+      var timeUntilHit = note.time - currentTime;
+      var progress = 1 - (timeUntilHit / travelTime);
+      var clampedProgress = Math.max(0, Math.min(1, progress));
+      var distance = startDistance + (endDistance - startDistance) * clampedProgress;
+      return {
+        id: note.time + '-' + note.element,
+        element: note.element,
+        angle: ELEMENTS[elementIdx].angle,
+        color: ELEMENTS[elementIdx].color,
+        distance: distance,
+        ghost: false
+      };
+    });
+
+  // 空白占位音符：未分配的卡点，统一走火焰轨道（angle=0）
+  var ghostNotes = clicks
+    .filter(function(t) {
+      if (assignedTimes.has(t)) return false;
+      var timeDiff = t - currentTime;
+      return timeDiff > -500 && timeDiff <= travelTime;
+    })
+    .map(function(t) {
+      var timeUntilHit = t - currentTime;
+      var progress = 1 - (timeUntilHit / travelTime);
+      var clampedProgress = Math.max(0, Math.min(1, progress));
+      var distance = startDistance + (endDistance - startDistance) * clampedProgress;
+      return {
+        id: 'ghost-' + t,
+        element: 'ghost',
+        angle: 0,
+        color: '#ffffff',
+        distance: distance,
+        ghost: true
+      };
+    });
+
+  return realNotes.concat(ghostNotes);
+}
+
+// 照搬游戏的 renderNotes 逻辑
+function renderPreviewNotes(currentTime) {
+  var mc = document.getElementById('magicCircle');
+
+  // 先删掉所有音符（照搬游戏：每帧重建）
+  mc.querySelectorAll('.note').forEach(function(el) { el.remove(); });
+
+  var notes = getActiveNotes(currentTime);
+
+  notes.forEach(function(note) {
+    var noteEl = document.createElement('div');
+    noteEl.className = 'note';
+    if (note.ghost) {
+      // 空白占位音符：半透明白色，虚线边框
+      noteEl.style.backgroundColor = 'rgba(255,255,255,0.15)';
+      noteEl.style.border = '2px dashed rgba(255,255,255,0.5)';
+      noteEl.style.boxShadow = '0 0 8px rgba(255,255,255,0.3)';
+    } else {
+      noteEl.style.backgroundColor = note.color;
+    }
+    noteEl.style.transform = 'rotate(' + note.angle + 'deg) translateY(' + (-note.distance) + 'px)';
+    mc.appendChild(noteEl);
+  });
+}
+
+function dlBlob(content, fname) {
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([content], { type: 'application/json' }));
+  a.download = fname; a.click();
+}
+
+function flUpload(callback) {
+  var i = document.createElement('input'); i.type = 'file'; i.accept = '.json';
+  i.onchange = function(e) {
+    var f = e.target.files[0]; if (!f) return;
+    var r = new FileReader(); r.onload = callback; r.readAsText(f);
+  };
+  i.click();
+}
+
+init();
+</script>
+</body>
+</html>
